@@ -1,18 +1,6 @@
 /** product: calculate the product of an array of numbers. */
 let nums = [1, 2, 3, 4]
 
-// *Note this is not recursive but does work 
-// function product(nums) {
-//   let one = 1; 
-//    for(let n of nums) {
-//      let number = n * one;
-//      one = number 
-//    }
-//    console.log("one:", one)
-//    return one; 
-
-// }
-
 function product(nums) {
   if(nums.length === 0) {
     return 1; 
@@ -104,8 +92,8 @@ function isPalindrome(str) {
 // let arr = [1, 2, 3, 4, 5]
 // let val = 4
 
-let arr = ["duck", "cat", "pony", "cat"];
-let val = "george";
+// let arr = ["duck", "cat", "pony", "cat"];
+// let val = "george";
 
 function findIndex(arr, val, count = 0) {
   if(arr.length === 0 || count > arr.length) return -1; 
@@ -158,44 +146,19 @@ function gatherStrings(obj) {
 return strings;
 }
 
-let result =  gatherStrings(obj)
-console.log("result:", result)
+// let result =  gatherStrings(obj)
+// console.log("result:", result)
 
 /** binarySearch: given a sorted array of numbers, and a value,
  * return the index of that value (or -1 if val is not present). */
 
-// * I believe I am supposed to use recursion and binary 
 
-
-// let val = 4;
-
-// function binarySearch(arr, val, start = 0, end = arr.length - 1) {
-//   console.log("start:", start)
-//   console.log("end:", end)
-
-//   if(arr.length === 0) return -1; 
-//   console.log("start + end:", start + end)
-//   console.log("(start + end)/ 2", ((start + end)/2) )
-//   let midIdx = Math.floor((start + end) / 2); 
-//     console.log("**midIdx:", midIdx)
-//   if(arr[midIdx] === val) return midIdx; 
-//     console.log("midIdx:", midIdx)
-//     // console.log("arr[midIdx]:", val < arr[midIdx])
-//   if(val < arr[midIdx]) binarySearch(arr, val, 0, midIdx); 
-//     // console.log("third if statement is NOT running")
-//     // console.log("val > arr[midIdx]", val > arr[midIdx])
-//   if(val > arr[midIdx]) binarySearch(arr, val, midIdx, end)
-//   console.log("val < midIdx")
-
-//   return midIdx
-// }
-
-// let arr = [1, 2, 3, 4, 5]
-// let val = 5
+let arr = [1, 2, 3, 4, 5]
+let val = 0
 
 function binarySearch(arr, val, start = 0, end = arr.length - 1) {
 
-  if(arr.length === 0) {
+  if(arr.length === 0 || start > end) {
     return -1; 
   }
 
@@ -213,8 +176,8 @@ function binarySearch(arr, val, start = 0, end = arr.length - 1) {
 }
 
 
-// let result =  binarySearch(arr, val)
-// console.log("result:", result)
+let result =  binarySearch(arr, val)
+console.log("result:", result)
 
 module.exports = {
   product,
