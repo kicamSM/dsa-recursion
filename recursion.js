@@ -75,17 +75,22 @@ function everyOther(str) {
 
 // let str = "hannah";
 // let str = "notPalindrome"; 
+// let str = "tacocat"
+// this seems to be handing even number letters but not odd number letters
 
 function isPalindrome(str) {
   // set ending point 
-  if(str.length === 0) {
+  if(str.length === 0 || str.length === 1) {
     return true;
   }
 
   let firstLetter = str[0];
+  console.log("firstLetter:", firstLetter)
   let lastLetter = str[str.length - 1]; 
+  console.log("lastLetter:", lastLetter)
 
   if(firstLetter === lastLetter) {
+    console.log("firstLetter === lastLetter")
     return isPalindrome(str.substring(1, str.length - 1));
   }
   if(firstLetter !== lastLetter) return false; 
@@ -99,20 +104,23 @@ function isPalindrome(str) {
 // let arr = [1, 2, 3, 4, 5]
 // let val = 4
 
+let arr = ["duck", "cat", "pony", "cat"];
+let val = "george";
+
 function findIndex(arr, val, count = 0) {
-  if(arr.length === 0) return -1; 
-  if(arr[0] === val) return count; 
+  if(arr.length === 0 || count > arr.length) return -1; 
+  if(arr[count] === val) return count; 
 
   count ++; 
-  return findIndex(arr.splice(1), val, count)
+  return findIndex(arr, val, count)
 }
 
-// let result =  findIndex(arr, val)
-// console.log("result:", result)
+let result =  findIndex(arr, val)
+console.log("result:", result)
 
 /** revString: return a copy of a string, but in reverse. */
 
-let str = "abcedefg"
+// let str = "abcedefg"
 
 function revString(str) {
   if(str.length === 0) return "";
@@ -198,8 +206,8 @@ return strings;
 //   return midIdx
 // }
 
-let arr = [1, 2, 3, 4, 5]
-let val = 5
+// let arr = [1, 2, 3, 4, 5]
+// let val = 5
 
 function binarySearch(arr, val, start = 0, end = arr.length - 1) {
 
@@ -221,8 +229,8 @@ function binarySearch(arr, val, start = 0, end = arr.length - 1) {
 }
 
 
-let result =  binarySearch(arr, val)
-console.log("result:", result)
+// let result =  binarySearch(arr, val)
+// console.log("result:", result)
 
 module.exports = {
   product,
