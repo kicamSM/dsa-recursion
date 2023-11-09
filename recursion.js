@@ -115,8 +115,8 @@ function findIndex(arr, val, count = 0) {
   return findIndex(arr, val, count)
 }
 
-let result =  findIndex(arr, val)
-console.log("result:", result)
+// let result =  findIndex(arr, val)
+// console.log("result:", result)
 
 /** revString: return a copy of a string, but in reverse. */
 
@@ -141,41 +141,25 @@ let obj = {
   age: 5,
   favFood: "popcorn",
   color: "black",
-  barks: false
+  barks: false, 
+  nestObj: {object1: "object1String"}
 };
 
 function gatherStrings(obj) {
-// console.log("test:", typeof 5)
-// console.log("Object.keys(obj):", Object.keys(obj)[0])
-// console.log("count1:", count)
-let strings = [];
+  let strings = [];
 // ! make a note that this is how you retain a value in recursions. Must have a for loop to do so. 
-console.log("strings:", strings)
-console.log("Object.keys(obj).length", Object.keys(obj).length)
 
-for(key in obj) {
-  if(typeof obj[key] === "string") strings.push(obj[key]); 
-  if(typeof obj[key] === "object") strings.push(gatherStrings(obj))
+  for(let key in obj) {
+    if(typeof obj[key] === "string") strings.push(obj[key]); 
+    if(typeof obj[key] === "object") strings.push(...gatherStrings(obj[key]))
+  // ! must include the rest of the strings as well so need the ...
 }
 
-// if(!Object.keys(obj)[0] || count > Object.keys(obj).length) return []; 
-
-// let item = Object.keys(obj)[count]; 
-// console.log("item:", item)
-// console.log("typeof item", typeof item === "string")
-// if(typeof item === "string") {
-//   strings.push(item); 
-//   console.log("strings:", strings)
-//   }
-// count ++; 
-// console.log("count2:", count)
-// gatherStrings(obj, count)
-
-return strings; 
+return strings;
 }
 
-// let result =  gatherStrings(obj)
-// console.log("result:", result)
+let result =  gatherStrings(obj)
+console.log("result:", result)
 
 /** binarySearch: given a sorted array of numbers, and a value,
  * return the index of that value (or -1 if val is not present). */
